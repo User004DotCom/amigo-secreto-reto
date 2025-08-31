@@ -2,6 +2,8 @@
 let listaAmigos = [];
 
 function agregarAmigo() {
+    const ulr = document.getElementById("resultado");
+    ulr.innerHTML = "";  
     let nombreAmigo = document.getElementById("amigo").value;
     console.log(nombreAmigo);
     if (nombreAmigo != "") {
@@ -23,12 +25,13 @@ function actualizarListaVisual(idLista, arrayDeNombres) {
     const ul = document.getElementById(idLista);
     ul.innerHTML = ""; // Limpia la lista visual
 
-    arrayDeNombres.forEach(nombre => {
+    for (let i = 0; i < arrayDeNombres.length; i++) {
         const li = document.createElement("li");
-        li.textContent = nombre;
+        li.textContent = arrayDeNombres[i];
         ul.appendChild(li);
-    });
+    }
 }
+
 
 function limpiarCaja() {
     document.getElementById("amigo").value = "";
@@ -38,16 +41,18 @@ function limpiarCaja() {
 function sortearAmigo() {
     let cantidadAmigos = listaAmigos.length;
     console.log(cantidadAmigos);
-    let nroGanador = Math.floor(Math.random()*cantidadAmigos);
-    console.log(nroGanador);
-    console.log(listaAmigos[nroGanador]);
+    if (cantidadAmigos > 0) {
+        let nroGanador = Math.floor(Math.random()*cantidadAmigos);
+        console.log(nroGanador);
+        console.log(listaAmigos[nroGanador]);
     
-    const ula = document.getElementById("listaAmigos");
-    ula.innerHTML = "";
+        const ula = document.getElementById("listaAmigos");
+        ula.innerHTML = "";
 
-    const ulr = document.getElementById("resultado");
-    ulr.innerHTML = "El amigo secreto sorteado es " + listaAmigos[nroGanador];
+        const ulr = document.getElementById("resultado");
+        ulr.innerHTML = "El amigo secreto sorteado es " + listaAmigos[nroGanador];
 
-    listaAmigos = [];
-    return
+        listaAmigos = [];
+    }
+    return;
 }

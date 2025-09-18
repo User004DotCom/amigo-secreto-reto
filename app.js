@@ -1,6 +1,7 @@
-// El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
+//Creacion del arreglo de amigos
 let listaAmigos = [];
 
+//funcion para agregar amigos al arreglo
 function agregarAmigo() {
     const ulr = document.getElementById("resultado");
     ulr.innerHTML = "";  
@@ -21,6 +22,7 @@ function agregarAmigo() {
     
 }
 
+//actualizar los valores de los nombres que se muestran por pantalla de la lista de amigos
 function actualizarListaVisual(idLista, arrayDeNombres) {
     const ul = document.getElementById(idLista);
     ul.innerHTML = ""; // Limpia la lista visual
@@ -32,12 +34,13 @@ function actualizarListaVisual(idLista, arrayDeNombres) {
     }
 }
 
-
+//vacia el contenedor para ingrasar otro nombre
 function limpiarCaja() {
     document.getElementById("amigo").value = "";
     return;
 }
 
+//selecciona al azar un nombre del arreglo y lo muestra por pantalla
 function sortearAmigo() {
     let cantidadAmigos = listaAmigos.length;
     console.log(cantidadAmigos);
